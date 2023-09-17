@@ -1,7 +1,9 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
+
 
 android {
     namespace 'com.app.tools'
@@ -35,6 +37,28 @@ android {
         jvmTarget = '1.8'
     }
 }
+
+
+afterEvaluate {
+    publishing {
+        publications {
+            // 这里的 myLibraryPublication 是一个自定义名称，您可以根据需要更改
+            myLibraryPublication(MavenPublication) {
+                // from components.re // 这里使用 android 组件发布
+                groupId = 'com.github.zhangzhen1129' // 替换为您的组织或公司名称
+                artifactId = 'ToolsBase' // 替换为您的 SDK 名称
+                version = '1.0.1' // 替换为您的 SDK 版本
+
+                // 可选：如果您的 SDK 包含源代码，您可以包括它们：
+//            artifact sourceJar
+
+                // 可选：如果您的 SDK 包含文档，您可以包括它们：
+                //  artifact javadocJar
+            }
+        }
+    }
+}
+
 
 dependencies {
 
