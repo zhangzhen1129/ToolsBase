@@ -36,6 +36,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
 
@@ -44,7 +51,7 @@ afterEvaluate {
         publications {
             // 这里的 myLibraryPublication 是一个自定义名称，您可以根据需要更改
             myLibraryPublication(MavenPublication) {
-                // from components.re // 这里使用 android 组件发布
+                from components.getByName('release') // 这里使用 android 组件发布
                 groupId = 'com.github.zhangzhen1129' // 替换为您的组织或公司名称
                 artifactId = 'ToolsBase' // 替换为您的 SDK 名称
                 version = '1.0.1' // 替换为您的 SDK 版本
