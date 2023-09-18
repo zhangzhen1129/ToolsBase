@@ -3,7 +3,7 @@
 ![GitHub](https://img.shields.io/github/license/zhangzhen1129/ToolsBase)
 ![Kotlin 100%](https://img.shields.io/badge/Kotlin-100%25-blue)
 ![androidx 100%](https://img.shields.io/badge/androidx-100%25-blue)
-![API 100%](https://img.shields.io/badge/API_21+_%25-blue)
+![API 100%](https://img.shields.io/badge/API-21+-blue)
 
 
 
