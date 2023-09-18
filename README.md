@@ -7,6 +7,7 @@
 
 
 ToolsBase 是一个简单的 WebView 工具库，旨在帮助您轻松集成 WebView 到您的 Android 应用中。这个库提供了一种方便的方式来处理 Web 页面加载和交互。
+使用 EasyWebView
 
 # 集成方式
 
