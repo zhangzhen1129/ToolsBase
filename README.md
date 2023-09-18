@@ -1,6 +1,9 @@
 # ToolsBase
 [![](https://jitpack.io/v/zhangzhen1129/ToolsBase.svg)](https://jitpack.io/#zhangzhen1129/ToolsBase)
 ![GitHub](https://img.shields.io/github/license/zhangzhen1129/ToolsBase)
+![GitHub](https://img.shields.io/github/API/zhangzhen1129/ToolsBase)
+![GitHub](https://img.shields.io/github/Androidx/zhangzhen1129/ToolsBase)
+![GitHub](https://img.shields.io/github/kotlin/zhangzhen1129/ToolsBase)
 
 
 ToolsBase 是一个简单的 WebView 工具库，旨在帮助您轻松集成 WebView 到您的 Android 应用中。这个库提供了一种方便的方式来处理 Web 页面加载和交互。
