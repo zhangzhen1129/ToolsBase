@@ -11,6 +11,6 @@ class TeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tv)
         val web=findViewById<EasyWebView>(R.id.web)
-        web.goAntoPath("",this)
+       // web.goAntoPath("",th)
     }
 }
