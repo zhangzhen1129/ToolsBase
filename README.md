@@ -55,7 +55,7 @@ EasyWebView.go((path : String, lifecycleObserver: LifecycleOwner)
 
 
 //更多
-EasyWebView.go( path: String = "",
+EasyWebView.goAntoPath( path: String = "",
         lifecycleObserver
         progress {},
         pageFinished{},
