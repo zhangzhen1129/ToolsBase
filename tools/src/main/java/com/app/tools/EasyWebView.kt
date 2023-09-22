@@ -45,7 +45,7 @@ class EasyWebView(context: Context) : WebView(context), DefaultLifecycleObserver
         }
     }
 
-    fun addSettings(): EasyWebView {
+    fun addSettings(isDebug: Boolean): EasyWebView {
         try {
             settings.apply {
                 enableJavaScript(settings = this)
@@ -65,7 +65,7 @@ class EasyWebView(context: Context) : WebView(context), DefaultLifecycleObserver
                 setNeedInitialFocus(true)
                 defaultTextEncodingName = "utf-8" //设置编码格式
                 setGeolocationEnabled(true)
-                setMixedContentMode(settings = this)
+                setMixedContentMode(settings = this, isDebug)
                 setLayerType(LAYER_TYPE_HARDWARE, null)
 
                 javaScriptCanOpenWindowsAutomatically = true
@@ -84,9 +84,9 @@ class EasyWebView(context: Context) : WebView(context), DefaultLifecycleObserver
     }
 
     //设置兼容模式
-    private fun setMixedContentMode(settings: WebSettings?): EasyWebView {
+    private fun setMixedContentMode(settings: WebSettings?, isDebug: Boolean): EasyWebView {
         //适配5.0不允许http和https混合使用情况
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             settings?.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW//不安全
         } else {
             settings?.mixedContentMode = WebSettings.MIXED_CONTENT_NEVER_ALLOW//安全
