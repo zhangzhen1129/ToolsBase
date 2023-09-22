@@ -52,5 +52,3 @@
     public void set*(***);
     public *** get*();
 }
-
--keep class  com.app.tools.EasyWebView.** {*;}

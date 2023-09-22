@@ -16,14 +16,14 @@ class EasyWebView(context: Context) : WebView(context), DefaultLifecycleObserver
     private lateinit var myPageFinished: (String) -> Unit
 
 
-    fun go(path: String, lifecycleObserver: LifecycleOwner) {
+    fun easyGo(path: String, lifecycleObserver: LifecycleOwner) {
         bindToLifecycle(lifecycleObserver)
         if (path.isNotEmpty()) {
             load(false, path)
         }
     }
 
-    fun goAntoPath(
+    fun easyGoAntoPath(
         path: String = "",
         lifecycleObserver: LifecycleOwner,
         progress: (Int) -> Unit = {},
@@ -45,7 +45,7 @@ class EasyWebView(context: Context) : WebView(context), DefaultLifecycleObserver
         }
     }
 
-    fun addSettings(isDebug: Boolean): EasyWebView {
+    fun easyAddSettings(isDebug: Boolean): EasyWebView {
         try {
             settings.apply {
                 enableJavaScript(settings = this)
@@ -95,24 +95,24 @@ class EasyWebView(context: Context) : WebView(context), DefaultLifecycleObserver
     }
 
 
-    fun setWebChromeClient(): EasyWebView {
+    fun easySetWebChromeClient(): EasyWebView {
         webChromeClient = MyWebChromeClient()
         return this
     }
 
-    fun setCustomWebViewClient(): EasyWebView {
+    fun  easySetCustomWebViewClient(): EasyWebView {
         webViewClient = CustomWebViewClient()
         return this
     }
 
 
-    fun addJavaScriptAny(any: Any?, name: String): EasyWebView {
+    fun  easyAddJavaScriptAny(any: Any?, name: String): EasyWebView {
         any?.let { addJavascriptInterface(it, name) }
         return this
     }
 
 
-    fun evaluateJavascriptAny(name: String, params: String = "") {
+    fun  easyEvaluateJavascriptAny(name: String, params: String = "") {
         if (name.isEmpty()) return
         val sb = StringBuilder()
         sb.append("javascript:$name")
@@ -168,10 +168,10 @@ class EasyWebView(context: Context) : WebView(context), DefaultLifecycleObserver
         } else loadUrl(url)
     }
 
-    fun deCanGoBack(): Boolean = canGoBack()
+    fun  easyGoBack(): Boolean = canGoBack()
 
 
-    fun back() = goBack()
+    fun  easyBack() = goBack()
 
     private inner class MyWebChromeClient : WebChromeClient() {
         override fun onProgressChanged(view: WebView?, newProgress: Int) {
