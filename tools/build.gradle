@@ -1,0 +1,78 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
+}
+
+
+android {
+    namespace 'com.app.tools'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+}
+
+
+afterEvaluate {
+    publishing {
+        publications {
+            // 这里的 myLibraryPublication 是一个自定义名称，您可以根据需要更改
+            myLibraryPublication(MavenPublication) {
+                from components.getByName('release') // 这里使用 android 组件发布
+                groupId = 'com.github.zhangzhen1129' // 替换为您的组织或公司名称
+                artifactId = 'ToolsBase' // 替换为您的 SDK 名称
+                version = '1.0.1' // 替换为您的 SDK 版本
+
+                // 可选：如果您的 SDK 包含源代码，您可以包括它们：
+//            artifact sourceJar
+
+                // 可选：如果您的 SDK 包含文档，您可以包括它们：
+                //  artifact javadocJar
+            }
+        }
+    }
+}
+
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
