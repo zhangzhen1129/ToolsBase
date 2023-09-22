@@ -47,4 +47,36 @@ dependencies {
 }
 
 ```
+## 使用 webView
+
+```groovy
+//简单加载网页  自动管理生命周期
+EasyWebView.go((path : String, lifecycleObserver: LifecycleOwner)
+
+
+//更多
+EasyWebView.go( path: String = "",
+        lifecycleObserver
+        progress {},
+        pageFinished{},
+        pageStart{},)
+
+progress 加载进度回调
+pageFinished 页面完成监听
+pageStart 加载开始监听
+
+使用 progress 和 pageFinished 必须设置
+setWebChromeClient()
+setCustomWebViewClient()
+
+
+//添加h5 交互 object  name
+addJavaScriptAny()
+
+
+//执行 js 方法 方法名 参数 json 字符串
+evaluateJavascriptAny()
+
+
+```
 
